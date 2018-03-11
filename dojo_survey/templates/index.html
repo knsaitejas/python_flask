@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Dojo Survey Index</title>
+</head>
+<body>
+	<div>
+		<form action="/view" method="post">
+			Name <input type="text" name="name">
+			Dojo Location <select name="location">
+				<option value="San Jose">San Jose</option>
+				<option value="Tulsa">Tulsa</option>
+				<option value="Seattle">Seattle</option>
+				<option value="Dallas">Dallas</option>
+				<option value="Los Angeles">Los Angeles</option>
+			</select>
+			Favorite language <select name="language">
+				<option value="Python">Python</option>
+				<option value="Java">Java</option>
+				<option value="IOS">Swift</option>
+				<option value="JS">JavaScript</option>
+				<option value="Ruby">Ruby on Rails!</option>
+			</select>
+			Comment (optional) <textarea name="comments"></textarea>
+			<input type="submit" name="submit" value="click here to submit :)">
+		</form>
+	</div>
+</body>
+</html>
