@@ -1,21 +1,15 @@
-from flask import Flask, render_template, redirect, session
-
+from flask import Flask, render_template, redirect, request, session
 app = Flask(__name__)
-app.secret_key = 'ThisIsSecret'
-
+app.secret_key = 'KeepItSecretKeepItSafe'
 @app.route('/')
 def index():
-  return render_template("index.html")
-@app.route('/users', methods=['POST'])
-def create_user():
-   print "Got Post Info"
-   # notice how the key we are using to access the info corresponds with the names
-   # of the inputs from our html form
-   name = request.form['name']
-   email = request.form['email']
-   return redirect('/') # redirects back to the '/' route
-@app.route('/show')
-def show_user():
-  return render_template('user.html', name='Jay', email='kpatel@codingdojo.com')
+  return render_template('index.html')
+@app.route('/process', methods=['POST'])
+def process():
+  if len(request.form['name']) < 1:
+    flash("Name cannot be empty!") # just pass a string to the flash function
+  else:
+    flash("Success! Your name is {}".format(request.form['name'])) # just pass a string to the flash function
+  return redirect('/') # either way the application should return to the index and display the message
 
 app.run(debug=True)
